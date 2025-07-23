@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content=" Gaussian Splatting with Reflectance Regularization for Endoscopic Scene Reconstruction">
+  <meta name="keywords" content="Gaussian Splatting, Reflectance Regularization, Endoscopic Scene Reconstruction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gaussian Splatting with Reflectance Regularization for Endoscopic Scene Reconstruction</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/app.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+  <style>
+    .gradient-text {
+        background-image: linear-gradient(to right, #b59f00, green, blue);
+        /* Darker yellow */
+        -webkit-background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-clip: text;
+        font-weight: bold;
+        /* Make the text bold */
+    }
+
+    .title.is-1.publication-title {
+        font-size: 48px;
+        font-weight: bold;
+        background-image: linear-gradient(to right, #b59f00, green, blue);
+        /* Darker yellow */
+        -webkit-background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-clip: text;
+    }
+
+    .interpolation-image-small {
+        width: 75%;
+        border-radius: 5px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .subtitle.has-text-centered-small {
+        width: 75%;
+        margin: 0 auto;
+    }
+    </style>
+
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span>Gaussian Splatting with Reflectance Regularization for Endoscopic Scene Reconstruction</h1>
+            <h2 class="subtitle is-3 publication-subtitle">IROS 2025</h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://chengkunli96.github.io/">Chengkun Li</a><sup>1</sup> · </span>
+              <span class="author-block">
+                <a href="https://ck-kai.github.io/">Kai Chen</a><sup>1</sup> · </span>
+              <span class="author-block">
+                <a href="https://shiqiu0419.github.io/">Shi Qiu</a><sup>1</sup> · </span>
+              <span class="author-block">
+                <a href="https://www.med.cuhk.edu.hk/staff/dr-chan-ying-kuen-jason">Jason Ying-Kuen Chan</a><sup>2</sup> · </span>
+              <span class="author-block">
+                <a href="http://www.cse.cuhk.edu.hk/~qdou/">Qi Dou</a><sup>1</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Dept. of Computer Science and Engineering, The Chinese University of Hong Kong</span><br>
+              <span class="author-block"><sup>2</sup>Dept. of Otorhinolaryngology, Head and Neck Surgery, The Chinese University of Hong Kong</span>
+            </div>
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>*</sup>Equal Contributions</span>
+            </div> -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/xxxx" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/med-air/GSR2"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code Coming Soon</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./assets/images/teaser.png" class="interpolation-image-small" />
+        <br>
+        <h2 class="subtitle has-text-centered-small">
+          <span class="gradient-text" font-weight: bold>ClipGS</span> is the first interactive cinematic rendering for volumetric medical data visualization that 
+          allow users to observe the internal structures and details under the queried view and clipping plane.
+        </h2>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-ketchup">
+            <video poster="" id="ketchup" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
+              <source src="./assets/videos/video2_slide1_low.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-plane">
+            <video poster="" id="plane" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
+              <source src="./assets/videos/video2_slide2_low.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-fox">
+            <video poster="" id="fox" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
+              <source src="./assets/videos/video2_slide4_low.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-toast">
+            <video poster="" id="toast" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
+              <source src="./assets/videos/video2_slide3_low.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-ruins">
+            <video poster="" id="ruins" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
+              <source src="./assets/videos/video2_slide5_low.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Endoscopic reconstruction plays a crucial role in surgical robotics. 
+              The dynamic lighting conditions and integrated camera-light source in endoscopic scenes create a distinct reconstruction challenge: shape ambiguity. 
+              To mitigate this, we propose a Gaussian Splatting (GS) based framework for endoscopic scene reconstruction, enhanced with reflectance regularization.
+              We embed every 3D Gaussian point with physical reflective attributes and combine this representation with a physically based inverse rendering framework. 
+              By jointly training 3DGS for view synthesis with this reflectance regularization, we are able to attain high-quality geometry without changing the volume rendering pipeline. 
+              Our experiments demonstrate the superiority in both geometry representation and rendering performance compared to existing GS approaches, making it a practical solution for endoscopic applications. 
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <iframe src="https://drive.google.com/file/d/1eh7vxRxer7gfvPhs8jDE56oRjayBc9oe/preview"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Overview</h2>
+      <img src="./assets/images/method.png" class="interpolation-image" />
+      <div style="margin-top: 2rem;">
+        <p>
+            In our framework, the endoscopic scene is represented as the reflective 3D Gaussian primitive, and we respectively use radiance field rendering and PBR to supervise the rendering result. 
+            In the deferred 3DGS branch, the color property is optimized to keep the ability in the novel view rendering. 
+            In the PBR branch, the Gaussian primitive reflects light from an optimizable radiant intensity distribution map and a light attenuation function based on the additional material and normal properties, thereby improving the geometric representation ability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre>
+        <code>@article{li2025clipgs,
+        title={ClipGS: Clippable Gaussian Splatting for Interactive Cinematic Visualization of Volumetric Medical Data},
+        author={Li, Chengkun and Tong, Yuqi and Chen, Kai and Yang, Zhenya and Li, Ruiyang and Qiu, Shi and Chan, Jason Ying-Kuen and Heng, Pheng-Ann and Dou, Qi},
+        journal={arXiv preprint arXiv:2507.06647},
+        year={2025}
+        }</code>
+      </pre>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/abs/2311.12198">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/med-air/GSR2" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              The source code of this website is borrowed from <a
+                href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+              We thank the authors for sharing the template.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
