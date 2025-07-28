@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="./static/css/app.css">
   <link rel="icon" href="./static/images/icon.png">
+  <link rel="stylesheet" href="./static/css/custom.css">
+  <link rel="stylesheet" href="./static/css/own.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -67,7 +69,7 @@
     }
 
     .interpolation-image-small {
-        width: 75%;
+        width: 65%;
         border-radius: 5px;
         display: block;
         margin: 0 auto;
@@ -76,6 +78,17 @@
     .subtitle.has-text-centered-small {
         width: 75%;
         margin: 0 auto;
+    }
+
+    /* Add horizontal scrolling for code blocks */
+    pre code {
+        overflow-x: auto;
+        white-space: pre;
+        word-wrap: normal;
+    }
+    
+    pre {
+        overflow-x: auto;
     }
     </style>
 
@@ -87,7 +100,13 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title"><span>Gaussian Splatting with Reflectance Regularization for Endoscopic Scene Reconstruction</h1>
+            <h1 class="title is-1 publication-title" style="font-size: 38px;">
+              <p class="word1 shakefont " style="color: #FFC5C5; font-family:PressStart2P">G</p>aussian 
+              <p class="word2 shakefont " style="color: #ecd1aa; font-family:PressStart2P">S</p>platting 
+              with 
+              <p class="word3 shakefont " style="color: #fe8e8e; font-family:PressStart2P">R</p>eflectance 
+              <p class="word4 shakefont " style="color: #98d4e6; font-family:PressStart2P">R</p>egularization
+              for Endoscopic Scene Reconstruction</h1>
             <h2 class="subtitle is-3 publication-subtitle">IROS 2025</h2>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -149,57 +168,56 @@
     </div>
   </section>
 
-  <!-- 
+  
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
         <img src="./assets/images/teaser.png" class="interpolation-image-small" />
         <br>
         <h2 class="subtitle has-text-centered-small">
-          <span class="gradient-text" font-weight: bold>ClipGS</span> is the first interactive cinematic rendering for volumetric medical data visualization that 
-          allow users to observe the internal structures and details under the queried view and clipping plane.
+          In this work, we propose a Gaussian Splatting based endoscopic scene reconstruction framework with reflectance regularization, for addressing the shape ambiguity arising from variable lighting in endoscopic scenes.
         </h2>
       </div>
     </div>
   </section>
-  -->
+  
 
-  <!-- <section class="hero is-light is-small">
+  <section class="hero is-light is-small">
     <div class="hero-body">
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-ketchup">
-            <video poster="" id="ketchup" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
-              <source src="./assets/videos/video2_slide1_low.mp4" type="video/mp4">
+          <div class="item item-C3VD">
+            <video poster="" id="C3VD" autoplay controls muted loop playsinline height="100%" style="width: 150%;" onloadedmetadata="this.playbackRate=1">
+              <source src="./assets/videos/case_video_1.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="item item-plane">
-            <video poster="" id="plane" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
-              <source src="./assets/videos/video2_slide2_low.mp4" type="video/mp4">
+          <div class="item item-SCARED">
+            <video poster="" id="SCARED" autoplay controls muted loop playsinline height="100%" style="width: 150%;" onloadedmetadata="this.playbackRate=1">
+              <source src="./assets/videos/case_video_3.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="item item-fox">
-            <video poster="" id="fox" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
-              <source src="./assets/videos/video2_slide4_low.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-toast">
-            <video poster="" id="toast" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
-              <source src="./assets/videos/video2_slide3_low.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-ruins">
-            <video poster="" id="ruins" autoplay controls muted loop playsinline height="100%" onloadedmetadata="this.playbackRate=0.75">
-              <source src="./assets/videos/video2_slide5_low.mp4" type="video/mp4">
+          <div class="item item-Simcol3D">
+            <video poster="" id="Simcol3D" autoplay controls muted loop playsinline height="100%" style="width: 150%;" onloadedmetadata="this.playbackRate=0.4">
+              <source src="./assets/videos/case_video_2.mp4" type="video/mp4">
             </video>
           </div>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
+
+  <script>
+    bulmaCarousel.attach('#results-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 2,
+        loop: true
+
+    });
+  </script>
+
   
   <section class="section">
-    <div class="container is-max-desktop">
+    <div class="container is-max-desktop-small">
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -248,12 +266,12 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre>
-        <code>@article{li2025clipgs,
-        title={ClipGS: Clippable Gaussian Splatting for Interactive Cinematic Visualization of Volumetric Medical Data},
-        author={Li, Chengkun and Tong, Yuqi and Chen, Kai and Yang, Zhenya and Li, Ruiyang and Qiu, Shi and Chan, Jason Ying-Kuen and Heng, Pheng-Ann and Dou, Qi},
-        journal={arXiv preprint arXiv:2507.06647},
-        year={2025}
-        }</code>
+<code>@article{li2025clipgs,
+  title={ClipGS: Clippable Gaussian Splatting for Interactive Cinematic Visualization of Volumetric Medical Data},
+  author={Li, Chengkun and Tong, Yuqi and Chen, Kai and Yang, Zhenya and Li, Ruiyang and Qiu, Shi and Chan, Jason Ying-Kuen and Heng, Pheng-Ann and Dou, Qi},
+  journal={arXiv preprint arXiv:2507.06647},
+  year={2025}
+}</code>
       </pre>
     </div>
   </section> -->
